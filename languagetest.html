@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <h1 id="result">Please Wait...</h1>
+    <script src = "fingerprint2.js" type="text/javascript"></script>
+    <script type = "text/javascript">
+      document.getElementById('result')
+        .innerHTML = window.Intl;
+
+
+      if (window.requestIdleCallback) {
+    		requestIdleCallback(function () {
+        		Fingerprint2.get(function (components) {
+          		console.log(components) // an array of components: {key: ..., value: ...}
+        	})
+   	  })} else {
+    		setTimeout(function () {
+        		Fingerprint2.get(function (components) {
+          		console.log(components) // an array of components: {key: ..., value: ...}
+        })  
+      }, 500);
+	}
+
+
+    </script>
+  </body>
+</html>
